@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import uuid from "uuid";
 
 class BandInput extends Component {
   state = {
@@ -13,7 +14,7 @@ class BandInput extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    this.props.addBand(this.state);
+    this.props.addBand({...this.state, id: uuid()});
     this.setState({ name: '' })
   }
 
